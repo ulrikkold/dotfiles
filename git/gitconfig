@@ -1,0 +1,7 @@
+[user]
+	email = kontakt@ulrikkold.dk
+	name = Ulrik Høyer Kold
+[push]
+	default = simple
+[core]
+	autocrlf = input
