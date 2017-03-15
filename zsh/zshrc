@@ -101,8 +101,9 @@ unalias gm
 
 alias gst='git status -sb'
 
-alias phpv5='sudo a2dismod php7.0 ; sudo a2enmod php5.6 ; sudo service apache2 restart ; echo 1 | sudo update-alternatives --config php'
-alias phpv7='sudo a2dismod php5.6 ; sudo a2enmod php7.0 ; sudo service apache2 restart ; echo 2 | sudo update-alternatives --config php'
+alias phpv5='sudo a2dismod php7.0 php7.1 ; sudo a2enmod php5.6 ; sudo service apache2 restart ; echo 1 | sudo update-alternatives --config php'
+alias phpv7='sudo a2dismod php5.6 php7.0 ; sudo a2enmod php7.0 ; sudo service apache2 restart ; echo 2 | sudo update-alternatives --config php'
+alias phpv71='sudo a2dismod php5.6 php7.0 ; sudo a2enmod php7.1 ; sudo service apache2 restart ; echo 3 | sudo update-alternatives --config php'
 
 ## I don't use NodeJS or nvm at the moment.
 ##export NVM_DIR="/home/uhk/.nvm"
@@ -120,5 +121,3 @@ autoload -Uz compinit && compinit -i
 if [ -x /usr/games/cowsay -a -x /usr/games/fortune -a -x /usr/games/lolcat ]; then
     fortune -sc | cowsay | lolcat
 fi
-
-export SLACK_TOKEN=''
