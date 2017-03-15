@@ -121,4 +121,4 @@ if [ -x /usr/games/cowsay -a -x /usr/games/fortune -a -x /usr/games/lolcat ]; th
     fortune -sc | cowsay | lolcat
 fi
 
-export SLACK_TOKEN='xoxp-4837372284-18019211057-92909706852-c279550443a767d9480b723183b9597f'
+export SLACK_TOKEN=''
