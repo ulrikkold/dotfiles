@@ -48,3 +48,5 @@
   tuck = stash save
   untuck = stash pop "stash@{0}"
   aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
+  recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\"
+  recent-long = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short) %(authordate)\"
