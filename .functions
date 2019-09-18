@@ -1,0 +1,7 @@
+function crawl() {
+	cd ~/tmp;
+	REPLACED=${1//./_};
+	mkdir -p "$REPLACED"
+	wget -r -nd -D "$1" --delete-after -nc -nv "https://$1/" -P "./$REPLACED" 2>&1 | tee -a "$REPLACED".`date +%s`.log;
+}
+

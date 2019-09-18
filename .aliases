@@ -1,0 +1,49 @@
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias zshconfig="editor ~/.zshrc"
+## alias ohmyzsh="nano ~/.oh-my-zsh"
+## alias sshpizza='ssh -i ~/.ssh/uhk-combine-rsa uhk@dev.netimage.dk'
+## alias sshqnap='ssh -i ~/.ssh/ulrikkold-personal-rsa admin@qnap219p'
+
+alias fullupgrade='sudo apt-get update && sudo apt-get dist-upgrade'
+alias safeupgrade='sudo apt-get update && sudo apt-get upgrade'
+
+alias ssh='ssh -A'
+
+## To avoid conflicts with graphicsmagick (named gm)
+alias gme='git merge'
+unalias gm
+
+alias gst='git status -sb'
+
+alias phpv5='sudo a2dismod php7.2 php7.3; sudo a2enmod php5.6; sudo service apache2 restart; echo 1 | sudo update-alternatives --config php'
+alias phpv72='sudo a2dismod php5.6 php7.3; sudo a2enmod php7.2; sudo service apache2 restart; echo 2 | sudo update-alternatives --config php'
+alias phpv73='sudo a2dismod php5.6 php7.2; sudo a2enmod php7.3; sudo service apache2 restart; echo 3 | sudo update-alternatives --config php'
+
+## apache utility alias
+alias apachestop='sudo systemctl stop apache2.service'
+alias apachestart='sudo systemctl restart apache2.service'
+
+## Traefik alias
+alias traefik='apachestop && cd ~/Projects/traefik/ && git checkout master && docker-compose up -d'
+alias traefikstop='cd ~/Projects/traefik && docker-compose stop'
+alias traefik_legacy='apachestop && cd ~/Projects/traefik && git checkout legacy && docker-compose up -d'
+
+alias learnlab='apachestop && traefik_legacy && cd ~/Projects/learnlab && docker-compose up -d'
+alias learnlabstop='docker stop `docker ps --filter=name=learnlab -q` && traefikstop'
+
+alias dpa='apachestop && traefik_legacy && cd ~/Projects/digital-pricing-app && docker-compose up -d'
+alias dpastop='cd ~/Projects/digital-pricing-app && docker-compose stop && traefikstop'
+
+##
+#alias wog='traefik_legacy && cd ~/Projects/worldofgreenland-shop && ./start-environment'
+#alias wogstop='docker stop `docker ps --filter=name=world -q` && traefikstop'
+
+#alias diskoline='traefik_legacy && cd ~/Projects/diskoline-shop && ./start-environment'
+#alias diskolinestop='docker stop `docker ps -q --filter=name=disko` && traefikstop'
+
+
