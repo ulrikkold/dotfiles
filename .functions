@@ -5,3 +5,7 @@ function crawl() {
 	wget -r -nd -D "$1" --delete-after -nc -nv "https://$1/" -P "./$REPLACED" 2>&1 | tee -a "$REPLACED".`date +%s`.log;
 }
 
+
+function get_my_cnf() {
+	ssh "$1" 'uname -n && cat .my.cnf'
+}
