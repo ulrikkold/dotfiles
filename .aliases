@@ -29,14 +29,14 @@ alias apachestop='sudo systemctl stop apache2.service'
 alias apachestart='sudo systemctl restart apache2.service'
 
 ## Traefik alias
-alias traefik='apachestop && cd ~/Projects/traefik/ && git checkout master && docker-compose up -d'
+alias traefik='apachestop && cd ~/Projects/traefik/ && git checkout -q master && docker-compose up -d'
 alias traefikstop='cd ~/Projects/traefik && docker-compose stop'
-alias traefik_legacy='apachestop && cd ~/Projects/traefik && git checkout legacy && docker-compose up -d'
+alias traefik_legacy='apachestop && cd ~/Projects/traefik && git checkout -q legacy && docker-compose up -d'
 
-alias learnlab='apachestop && traefik_legacy && cd ~/Projects/learnlab && docker-compose up -d'
+alias learnlab='traefik_legacy && cd ~/Projects/learnlab && docker-compose up -d'
 alias learnlabstop='docker stop `docker ps --filter=name=learnlab -q` && traefikstop'
 
-alias dpa='apachestop && traefik_legacy && cd ~/Projects/digital-pricing-app && docker-compose up -d'
+alias dpa='traefik && cd ~/Projects/digital-pricing-app && docker-compose up -d'
 alias dpastop='cd ~/Projects/digital-pricing-app && docker-compose stop && traefikstop'
 
 ##
